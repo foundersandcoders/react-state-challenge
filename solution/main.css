@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  --green: hsl(150, 100%, 70%);
+  --orange: hsl(30, 100%, 70%);
+  --text: hsl(220, 10%, 20%);
+  --bg: hsl(220, 10%, 98%);
+  accent-color: var(--orange);
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+section[aria-label="filters"] {
+  flex-basis: 20rem;
+  flex-grow: 1;
+  padding: 2rem;
+  background-color: var(--green);
+}
+
+section[aria-label="dishes"] {
+  flex-basis: 0;
+  flex-grow: 999;
+  padding: 2rem;
+  padding: clamp(2rem, 2rem + 4vw, 6rem);
+}
+
+h1 {
+  font-family: ui-monospace, monospace;
+  font-weight: 900;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 1;
+  padding: 0.5rem;
+  border: 0.25rem solid;
+  margin-bottom: 3rem;
+  background-color: var(--orange);
+}
+
+.sticky {
+  position: sticky;
+  top: 2rem;
+}
+
+fieldset {
+  margin-top: 1rem;
+  border: 0.25rem solid;
+  padding: 1rem;
+}
+
+legend {
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+label + label {
+  margin-top: 0.25rem;
+}
+
+[type="range"] {
+  width: 100%;
+}
+
+[type="radio"] {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  grid-gap: clamp(2rem, 2rem + 1vw, 4rem);
+  align-content: start;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 0.25rem;
+  box-shadow: 0.5rem 0.5rem 0 var(--orange);
+  border: 0.25rem solid black;
+  padding: 1rem;
+  background-color: white;
+}
