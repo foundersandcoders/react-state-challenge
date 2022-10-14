@@ -5,7 +5,7 @@ import { component, render, createElement, prettyDOM, tag } from "./helpers.js";
 
 test("FilterPrice component is extracted to separate file", async () => {
   const FilterPrice = await component("FilterPrice");
-  const el = createElement(FilterPrice, { name: "oli" });
+  const el = createElement(FilterPrice, { max: 9 });
   const { unmount, container } = render(el);
   after(unmount);
 
@@ -19,7 +19,7 @@ test("FilterPrice component is extracted to separate file", async () => {
 
 test("FilterCategory component is extracted to separate file", async () => {
   const FilterCategory = await component("FilterCategory");
-  const el = createElement(FilterCategory, { name: "oli" });
+  const el = createElement(FilterCategory, { category: "all" });
   const { unmount, container } = render(el);
   after(unmount);
 
@@ -33,7 +33,7 @@ test("FilterCategory component is extracted to separate file", async () => {
 
 test("ListDishes component is extracted to separate file", async () => {
   const ListDishes = await component("ListDishes");
-  const el = createElement(ListDishes, { name: "oli" });
+  const el = createElement(ListDishes, { category: "all", max: 9 });
   const { unmount, container } = render(el);
   after(unmount);
 
