@@ -8,6 +8,8 @@ html {
   --orange: hsl(30, 100%, 70%);
   --text: hsl(220, 10%, 20%);
   --bg: hsl(220, 10%, 98%);
+  --gutter-md: clamp(2rem, 2rem + 1vw, 4rem);
+  --gutter-lg: clamp(2rem, 2rem + 4vw, 5rem);
   accent-color: var(--orange);
 }
 
@@ -31,15 +33,15 @@ main {
 section[aria-label="filters"] {
   flex-basis: 20rem;
   flex-grow: 1;
-  padding: 2rem;
+  padding-block: var(--gutter-lg);
+  padding-inline: var(--gutter-md);
   background-color: var(--green);
 }
 
 section[aria-label="dishes"] {
   flex-basis: 0;
   flex-grow: 999;
-  padding: 2rem;
-  padding: clamp(2rem, 2rem + 4vw, 6rem);
+  padding: var(--gutter-lg);
 }
 
 h1 {
@@ -50,13 +52,13 @@ h1 {
   line-height: 1;
   padding: 0.5rem;
   border: 0.25rem solid;
-  margin-bottom: 3rem;
+  margin-bottom: var(--gutter-md);
   background-color: var(--orange);
 }
 
 .sticky {
   position: sticky;
-  top: 2rem;
+  top: var(--gutter-lg);
 }
 
 fieldset {
@@ -91,7 +93,7 @@ label + label {
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-  grid-gap: clamp(2rem, 2rem + 1vw, 4rem);
+  grid-gap: var(--gutter-md);
   align-content: start;
 }
 
