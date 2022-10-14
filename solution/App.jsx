@@ -1,8 +1,10 @@
+import { useState } from "react";
 import FilterPrice from "./FilterPrice.jsx";
 import FilterCategory from "./FilterCategory.jsx";
 import ListDishes from "./ListDishes.jsx";
 
 function App() {
+  const [max, setMax] = useState(9);
   return (
     <main>
       <section aria-label="filters">
@@ -10,13 +12,13 @@ function App() {
           <h1>Burger Place</h1>
           <form>
             <h2>Filter dishes</h2>
-            <FilterPrice />
-            <FilterCategory />
+            <FilterPrice max={max} setMax={setMax} />
+            <FilterCategory max={max} />
           </form>
         </div>
       </section>
       <section aria-label="dishes">
-        <ListDishes />
+        <ListDishes max={max} />
       </section>
     </main>
   );

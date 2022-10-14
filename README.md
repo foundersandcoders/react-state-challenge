@@ -24,3 +24,13 @@ The `App` component in `challenge/App.jsx` is getting a bit noisy. It's usually 
 1. Extract the "Category" fieldset to a new file called `FilterCategory`
 1. Extract the unordered list rendering the dishes to a new file called `ListDishes.jsx`
 1. Import and render the components in `App.jsx` so the UI stays the same
+
+## Challenge 2: filtering by price
+
+The max price range input currently does nothing. We need to use a React state value to make the UI dynamic.
+
+1. Create a state value representing the maximum price filter
+1. Control the state value with the max price range input
+1. Filter the dish list to only show dishes cheaper than the chosen max price
+
+Remember this state needs to be used in two places, so think carefully about where it should be defined.

@@ -1,11 +1,11 @@
 import dishes from "./data.js";
 
-export default function ListDishes() {
+export default function ListDishes({ max }) {
   return (
     <ul className="grid">
-      {!dishes.length && <li className="card">No results found</li>}
-      {dishes.length &&
-        dishes.map((dish) => (
+      {dishes
+        .filter((dish) => dish.price < max)
+        .map((dish) => (
           <li key={dish.id} className="card">
             <h3>{dish.name}</h3>
             {dish.description && <p>{dish.description}</p>}
