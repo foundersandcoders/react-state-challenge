@@ -11,11 +11,11 @@ export {
   prettyDOM,
 } from "@testing-library/react/pure.js";
 
+const DIR = process.env.DIR;
+
 export async function component(name) {
-  const module = await import(`../_test/${name}.js`).catch((e) => {
-    e.message = e.message.replace(/_test/g, "challenge");
-    return assert.fail(e);
-  });
+  const path = `../${DIR}/${name}.jsx`;
+  const module = await import(path).catch((e) => assert.fail(e.message));
   assert.equal(
     typeof module.default,
     "function",
