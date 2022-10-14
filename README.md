@@ -27,10 +27,19 @@ The `App` component in `challenge/App.jsx` is getting a bit noisy. It's usually 
 
 ## Challenge 2: filtering by price
 
-The max price range input currently does nothing. We need to use a React state value to make the UI dynamic.
+The max price range input currently does nothing.
 
 1. Create a state value representing the maximum price filter
 1. Control the state value with the max price range input
 1. Filter the dish list to only show dishes cheaper than the chosen max price
 
 Remember this state needs to be used in two places, so think carefully about where it should be defined.
+
+## Challenge 3: filtering by category
+
+The category radio inputs currently do nothing.
+
+1. Create a state value representing the checked category
+1. Control the state value with the category radio inputs
+1. Filter the dish list to only show dishes with the category selected (or every dish for "all")
+1. Make sure the price filtering keeps working

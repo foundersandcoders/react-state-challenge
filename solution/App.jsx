@@ -5,6 +5,7 @@ import ListDishes from "./ListDishes.jsx";
 
 function App() {
   const [max, setMax] = useState(9);
+  const [category, setCategory] = useState("all");
   return (
     <main>
       <section aria-label="filters">
@@ -13,12 +14,12 @@ function App() {
           <form>
             <h2>Filter dishes</h2>
             <FilterPrice max={max} setMax={setMax} />
-            <FilterCategory max={max} />
+            <FilterCategory category={category} setCategory={setCategory} />
           </form>
         </div>
       </section>
       <section aria-label="dishes">
-        <ListDishes max={max} />
+        <ListDishes max={max} category={category} />
       </section>
     </main>
   );
