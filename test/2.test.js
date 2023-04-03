@@ -1,32 +1,33 @@
 // eslint-disable-next-line import/no-unresolved
-import { describe as test, after } from "node:test";
+import test from "node:test";
 import assert from "node:assert/strict";
-import { component, render, createElement, fireEvent, tag } from "./helpers.js";
+import { component, render, jsx, event, debug } from "./helpers.js";
 
-test("User can filter list by changing range input", async () => {
+test("User can filter list by changing range input", async (t) => {
   const App = await component("App");
-  const el = createElement(App);
-  const { unmount, container } = render(el);
-  after(unmount);
+  const unmount = render(jsx(App, {}));
+  t.after(unmount);
 
-  const range = tag(container, "input[type='range']", window.HTMLInputElement);
-  fireEvent.change(range, { target: { value: "0.5" } });
+  const range = document.querySelector("input[type='range']");
+  assert.ok(range, `Expected an <input type="range">, but got:\n${debug()}`);
 
-  const ul = tag(container, "ul", window.HTMLUListElement);
-  const kids = ul.children.length;
+  range.value = "0.5";
+  event("change", range);
+
+  const ul = document.querySelector("ul");
   assert.equal(
-    kids,
+    ul?.children?.length,
     12,
-    `Expected <ul> to have 12 children after max price set to 0.5, but got ${kids} children`
+    `Expected <ul> to have 12 children after max price set to 0.5, but got:\n${debug()}`
   );
 
-  fireEvent.change(range, { target: { value: "4.25" } });
+  range.value = "4.25";
+  event("change", range);
 
-  const ul2 = tag(container, "ul", window.HTMLUListElement);
-  const kids2 = ul2.children.length;
+  const ul2 = document.querySelector("ul");
   assert.equal(
-    kids2,
+    ul2?.children?.length,
     42,
-    `Expected <ul> to have 12 children after max price set to 4.25, but got ${kids2} children`
+    `Expected <ul> to have 42 children after max price set to 4.25, but got:\n${debug()}`
   );
 });

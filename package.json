@@ -3,14 +3,16 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:1": "node --no-warnings --test-reporter spec --experimental-loader ./test/jsx-loader.js test/1.test.js",
+    "test:2": "node --no-warnings --test-reporter spec --experimental-loader ./test/jsx-loader.js test/2.test.js",
+    "test:3": "node --no-warnings --test-reporter spec --experimental-loader ./test/jsx-loader.js test/3.test.js"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@testing-library/react": "^13.4.0",
     "@vitejs/plugin-react": "^2.1.0",
     "esbuild": "^0.15.10",
     "eslint": "^8.25.0",

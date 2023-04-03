@@ -1,47 +1,47 @@
 // eslint-disable-next-line import/no-unresolved
-import { describe as test, after } from "node:test";
+import test from "node:test";
 import assert from "node:assert/strict";
-import { component, render, createElement, prettyDOM, tag } from "./helpers.js";
+import { component, render, jsx, debug } from "./helpers.js";
 
-test("FilterPrice component is extracted to separate file", async () => {
+test("FilterPrice component is extracted to separate file", async (t) => {
   const FilterPrice = await component("FilterPrice");
-  const el = createElement(FilterPrice, { max: 9 });
-  const { unmount, container } = render(el);
-  after(unmount);
+  const el = jsx(FilterPrice, { max: 9 });
+  const unmount = render(el);
+  t.after(unmount);
 
-  const legend = tag(container, "legend", window.HTMLLegendElement);
+  const legend = document.querySelector("legend");
   assert.match(
-    legend.textContent,
+    legend?.textContent,
     /price/i,
-    `<FilterPrice /> render should include <legend>Price</legend>, but got:\n${prettyDOM()}`
+    `<FilterPrice /> render should include <legend>Price</legend>, but got:\n${debug()}`
   );
 });
 
-test("FilterCategory component is extracted to separate file", async () => {
+test("FilterCategory component is extracted to separate file", async (t) => {
   const FilterCategory = await component("FilterCategory");
-  const el = createElement(FilterCategory, { category: "all" });
-  const { unmount, container } = render(el);
-  after(unmount);
+  const el = jsx(FilterCategory, { category: "all" });
+  const unmount = render(el);
+  t.after(unmount);
 
-  const legend = tag(container, "legend", window.HTMLLegendElement);
+  const legend = document.querySelector("legend");
   assert.match(
-    legend.textContent,
+    legend?.textContent,
     /category/i,
-    `<FilterCategory /> render should include <legend>Category</legend>, but got:\n${prettyDOM()}`
+    `<FilterCategory /> render should include <legend>Category</legend>, but got:\n${debug()}`
   );
 });
 
-test("ListDishes component is extracted to separate file", async () => {
+test("ListDishes component is extracted to separate file", async (t) => {
   const ListDishes = await component("ListDishes");
-  const el = createElement(ListDishes, { category: "all", max: 9 });
-  const { unmount, container } = render(el);
-  after(unmount);
+  const el = jsx(ListDishes, { category: "all", max: 9 });
+  const unmount = render(el);
+  t.after(unmount);
 
-  const ul = tag(container, "ul", window.HTMLUListElement);
+  const ul = document.querySelector("ul");
   assert.equal(
-    ul.children.length,
+    ul?.children?.length,
     58,
-    `<ListDishes /> should render a <ul> with 58 children, but got:\n${prettyDOM(
+    `<ListDishes /> should render a <ul> with 58 children, but got:\n${debug(
       ul
     )}`
   );
