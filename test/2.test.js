@@ -18,7 +18,7 @@ test("User can filter list by changing range input", async (t) => {
   assert.equal(
     ul?.children?.length,
     12,
-    `Expected <ul> to have 12 children after max price set to 0.5, but got:\n${debug()}`
+    `Expected <ul> to have 12 children after max price set to 0.5, but got ${ul?.children?.length}`
   );
 
   range.value = "4.25";
@@ -28,6 +28,6 @@ test("User can filter list by changing range input", async (t) => {
   assert.equal(
     ul2?.children?.length,
     42,
-    `Expected <ul> to have 42 children after max price set to 4.25, but got:\n${debug()}`
+    `Expected <ul> to have 42 children after max price set to 4.25, but got ${ul2?.children?.length}`
   );
 });

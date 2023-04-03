@@ -19,7 +19,7 @@ test("User can filter list by selecting different category", async (t) => {
   assert.equal(
     ul?.children?.length,
     8,
-    `Expected <ul> to have 12 children after category set to 'burger', but got ${ul?.children?.length} children`
+    `Expected <ul> to have 12 children after category set to 'burger', but got ${ul?.children?.length}`
   );
 
   const topping = document.querySelector("input[type='radio']#topping");
@@ -33,6 +33,6 @@ test("User can filter list by selecting different category", async (t) => {
   assert.equal(
     ul2?.children?.length,
     15,
-    `Expected <ul> to have 15 children after category set to 'toppings', but got ${ul2?.children?.length} children`
+    `Expected <ul> to have 15 children after category set to 'toppings', but got ${ul2?.children?.length}`
   );
 });
