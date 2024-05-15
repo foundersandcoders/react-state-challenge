@@ -9,17 +9,20 @@
     "test:3": "node --experimental-loader ./test/jsx-loader.js test/3.test.js"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^2.1.0",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.2.1",
     "esbuild": "^0.15.10",
     "eslint": "^8.25.0",
     "eslint-config-react-minimal": "^3.1.0",
-    "global-jsdom": "^8.6.0",
-    "jsdom": "^20.0.1",
-    "vite": "^3.1.0"
+    "global-jsdom": "^24.0.0",
+    "jsdom": "^24.0.0",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11"
   },
   "eslintConfig": {
     "extends": [
@@ -31,6 +34,6 @@
     }
   },
   "volta": {
-    "node": "18.16.0"
+    "node": "20.13.1"
   }
 }
