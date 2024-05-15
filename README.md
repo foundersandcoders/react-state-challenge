@@ -4,7 +4,7 @@ Practice using React state to share dynamic values across different parts of an 
 
 ## Setup
 
-Make sure you have Git and Node (v18) installed.
+Make sure you have Git and Node (v20) installed.
 
 1. [Use this template](https://github.com/foundersandcoders/react-state-challenge/generate), clone your copy, `cd` into it
 1. Run `npm install` to install all the dependencies
@@ -18,12 +18,12 @@ Make sure you read test failures carefully—the output can be noisy but the err
 
 ## Challenge 1: modularisation
 
-The `App` component in `challenge/App.jsx` is getting a bit noisy. It's usually a good idea to start writing all your code in one component, since you don't know exactly what you need yet. But now there's a few established sections we should extract them to separate components.
+The `App` component in `challenge/App.tsx` is getting a bit noisy. It's usually a good idea to start writing all your code in one component, since you don't know exactly what you need yet. But now there's a few established sections we should extract them to separate components.
 
-1. Extract the "Price" fieldset to a new file called `FilterPrice.jsx`
-1. Extract the "Category" fieldset to a new file called `FilterCategory`
-1. Extract the unordered list rendering the dishes to a new file called `ListDishes.jsx`
-1. Import and render the components in `App.jsx` so the UI stays the same
+1. Extract the "Price" fieldset to a new file called `FilterPrice.tsx`
+1. Extract the "Category" fieldset to a new file called `FilterCategory.tsx`
+1. Extract the unordered list rendering the dishes to a new file called `ListDishes.tsx`
+1. Import and render the components in `App.tsx` so the UI stays the same
 
 ## Challenge 2: filtering by price
 
